@@ -135,22 +135,18 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 #endif
     centralLayout->addWidget(centralStackedWidget);
 
-
     setCentralWidget(centralWidget);
 
     // Create status bar
     statusBar();
 
     // Status bar notification icons
-    //QFrame *frameBlocks = new QFrame();
-    QWidget *frameBlocks = new QWidget();
+    QFrame *frameBlocks = new QFrame();
     frameBlocks->setContentsMargins(0,0,0,0);
-    // frameBlocks->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    frameBlocks->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    frameBlocks->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     QHBoxLayout *frameBlocksLayout = new QHBoxLayout(frameBlocks);
     frameBlocksLayout->setContentsMargins(3,0,3,0);
     frameBlocksLayout->setSpacing(3);
-    frameBlocksLayout->setAlignment(Qt::AlignHCenter);
     labelEncryptionIcon = new QLabel();
     labelStakingIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
@@ -164,7 +160,6 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelBlocksIcon);
     frameBlocksLayout->addStretch();
-    toolbar->addWidget(frameBlocks);
 
     if (GetBoolArg("-staking", true))
     {
@@ -359,12 +354,11 @@ static QWidget* makeToolBarSpacer()
 
 void BitcoinGUI::createToolBars()
 {
-    //QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
     toolbar = new QToolBar(tr("Tabs toolbar"));
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu);
     toolbar->setObjectName("tabs");
-    toolbar->setIconSize(QSize(16,16));
+    toolbar->setIconSize(QSize(24,24));
 
     QLabel* header = new QLabel();
     header->setMinimumSize(142, 142);
@@ -373,6 +367,7 @@ void BitcoinGUI::createToolBars()
     header->setMaximumSize(142,142);
     header->setScaledContents(true);
     toolbar->addWidget(header);
+
     toolbar->addAction(overviewAction);
     toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);
