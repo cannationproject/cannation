@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = Cannation-qt
-VERSION = 1.1.0.0
+VERSION = 1.1.1.0
 INCLUDEPATH += src src/json src/qt
 QT += core gui widgets network printsupport
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
